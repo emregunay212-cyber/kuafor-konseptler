@@ -25,14 +25,17 @@ const empty = document.getElementById('empty')
 // Deploy kökü (Vite base). Root deploy'da '/', GitHub Pages alt-yolunda '/<repo>/'.
 const BASE = import.meta.env.BASE_URL
 
+// Mobil cihaz mı? (dar viewport) — mobilde "Masaüstü görünüm" ölçekli emülasyon açar.
+const isMobile = () => window.matchMedia('(max-width: 860px)').matches
+
 grid.innerHTML = THEMES.map((t) => {
   const url = `${BASE}${t.folder}/`
   return `
   <article class="card" data-dir="${t.dir}">
-    <a class="preview" href="${url}" target="_blank" rel="noopener" aria-label="${t.name} — tam ekran aç">
+    <a class="preview" data-view="desk" data-url="${url}" data-name="${t.name}" href="${url}" target="_blank" rel="noopener" aria-label="${t.name} — masaüstü görünümde aç">
       <span class="preview-skeleton">yükleniyor…</span>
       <iframe data-src="${url}" loading="lazy" tabindex="-1" title="${t.name} önizleme" scrolling="no"></iframe>
-      <span class="preview-hint">Tam ekran aç ↗</span>
+      <span class="preview-hint">Büyüt ↗</span>
     </a>
     <div class="card-body">
       <div class="card-head">
@@ -42,8 +45,8 @@ grid.innerHTML = THEMES.map((t) => {
       <span class="tag tag-${t.dir}">${t.tag}</span>
       <p class="desc">${t.desc}</p>
       <div class="actions">
-        <a class="btn btn-primary" href="${url}" target="_blank" rel="noopener">Tam ekran</a>
-        <button class="btn btn-ghost" data-mobile="${url}" data-name="${t.name}">Mobil görünüm</button>
+        <a class="btn btn-primary" data-view="desk" data-url="${url}" data-name="${t.name}" href="${url}" target="_blank" rel="noopener" title="Masaüstü görünümde aç">Masaüstü görünüm</a>
+        <button class="btn btn-ghost" data-view="mob" data-url="${url}" data-name="${t.name}" title="Mobil görünümde aç">Mobil görünüm</button>
       </div>
     </div>
   </article>`
@@ -114,14 +117,86 @@ function closeModal() {
   phoneFrame.src = 'about:blank'
   document.body.style.overflow = ''
 }
+/* Masaüstü emülasyon: mobilde temayı 1280px masaüstü genişliğinde render edip
+   ekrana sığacak şekilde ölçekler (gerçek masaüstü düzeni, kaydırılabilir).
+   Geri tuşunda veya kapat'ta kapanır. */
+const DESK_W = 1280
+function openDesktopView(url, name) {
+  const screenW = document.documentElement.clientWidth || window.innerWidth
+  const scale = screenW / DESK_W
+
+  const overlay = document.createElement('div')
+  overlay.className = 'deskview'
+  overlay.innerHTML = `
+    <div class="deskview__bar">
+      <span class="deskview__title">${name} — masaüstü görünüm</span>
+      <a class="deskview__open" href="${url}" target="_blank" rel="noopener" aria-label="Yeni sekmede aç">↗</a>
+      <button class="deskview__close" aria-label="Kapat">×</button>
+    </div>
+    <div class="deskview__stage">
+      <div class="deskview__scaler">
+        <iframe class="deskview__frame" title="${name} masaüstü önizleme"></iframe>
+      </div>
+    </div>`
+  const scaler = overlay.querySelector('.deskview__scaler')
+  const frame = overlay.querySelector('.deskview__frame')
+  frame.style.width = DESK_W + 'px'
+  frame.style.transformOrigin = 'top left'
+  frame.style.transform = `scale(${scale})`
+  scaler.style.width = screenW + 'px'
+
+  const fit = () => {
+    let h = 4000
+    try {
+      const d = frame.contentDocument
+      h = Math.max(d.documentElement.scrollHeight, d.body.scrollHeight)
+    } catch (_) {}
+    frame.style.height = h + 'px'
+    scaler.style.height = Math.ceil(h * scale) + 'px'
+  }
+  frame.addEventListener('load', () => { fit(); setTimeout(fit, 500); setTimeout(fit, 1400) })
+  frame.src = url
+
+  document.body.appendChild(overlay)
+  document.body.style.overflow = 'hidden'
+  requestAnimationFrame(() => overlay.classList.add('is-open'))
+
+  let closed = false
+  const onPop = () => doClose(true)
+  function doClose(fromPop) {
+    if (closed) return
+    closed = true
+    overlay.classList.remove('is-open')
+    window.removeEventListener('popstate', onPop)
+    setTimeout(() => { overlay.remove(); document.body.style.overflow = '' }, 240)
+    if (!fromPop) history.back() // kapat → push'lanan state'i geri al
+  }
+  history.pushState({ deskview: true }, '')
+  window.addEventListener('popstate', onPop)
+  overlay.querySelector('.deskview__close').addEventListener('click', () => doClose(false))
+}
+
+/* Kart aksiyonları — cihaza göre yönlendir */
 grid.addEventListener('click', (e) => {
-  const btn = e.target.closest('[data-mobile]')
-  if (!btn) return
-  openModal(btn.dataset.mobile, btn.dataset.name)
+  const el = e.target.closest('[data-view]')
+  if (!el) return
+  const { view, url, name } = el.dataset
+  if (view === 'desk') {
+    // Masaüstü görünüm: mobilde ölçekli emülasyon, masaüstünde yeni sekme (varsayılan <a>)
+    if (isMobile()) { e.preventDefault(); openDesktopView(url, name) }
+  } else {
+    // Mobil görünüm: mobilde temayı doğal (yeni sekme), masaüstünde telefon çerçevesi
+    e.preventDefault()
+    if (isMobile()) window.open(url, '_blank', 'noopener')
+    else openModal(url, name)
+  }
 })
 modal.addEventListener('click', (e) => {
   if (e.target.hasAttribute('data-close')) closeModal()
 })
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !modal.hidden) closeModal()
+  if (e.key !== 'Escape') return
+  if (!modal.hidden) closeModal()
+  const dv = document.querySelector('.deskview .deskview__close')
+  if (dv) dv.click()
 })

@@ -116,6 +116,20 @@ a { color: inherit; }
 @keyframes fade { from { opacity: 0; } }
 @keyframes pop { from { opacity: 0; transform: scale(0.94); } }
 
+/* Masaüstü emülasyon overlay (mobilde "Masaüstü görünüm") */
+.deskview { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; background: #14121a; opacity: 0; transition: opacity 0.25s var(--ease); }
+.deskview.is-open { opacity: 1; }
+.deskview__bar { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #1d1a24; color: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.3); }
+.deskview__title { flex: 1; min-width: 0; font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.deskview__open, .deskview__close { flex: 0 0 auto; width: 38px; height: 38px; display: grid; place-items: center; border: none; background: rgba(255,255,255,0.12); color: #fff; cursor: pointer; text-decoration: none; }
+.deskview__open { border-radius: 10px; font-size: 18px; }
+.deskview__close { border-radius: 50%; font-size: 24px; line-height: 1; }
+.deskview__open:hover, .deskview__close:hover { background: rgba(255,255,255,0.24); }
+.deskview__stage { flex: 1 1 auto; overflow: auto; -webkit-overflow-scrolling: touch; background: #fff; }
+.deskview__scaler { position: relative; margin: 0 auto; }
+.deskview__frame { position: absolute; top: 0; left: 0; border: 0; background: #fff; }
+@media (prefers-reduced-motion: reduce) { .deskview { transition: none; } }
+
 @media (max-width: 540px) {
   .actions { flex-direction: column; }
   .filters { top: 64px; }
