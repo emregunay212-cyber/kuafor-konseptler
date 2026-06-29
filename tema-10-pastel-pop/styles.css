@@ -340,7 +340,7 @@ h3 {
   padding: 1rem 1.2rem 1.6rem;
   background: var(--surface);
   border-top: 2px solid var(--line);
-  display: grid;
+  display: none; /* masaüstünde gizli; sadece mobilde açıkken görünür */
   gap: 0.4rem;
 }
 .mobile-menu__list a {
@@ -1013,6 +1013,9 @@ h3 {
   }
   .hamburger {
     display: flex;
+  }
+  .mobile-menu:not([hidden]) {
+    display: grid; /* mobilde sadece menü açıkken göster */
   }
 }
 
