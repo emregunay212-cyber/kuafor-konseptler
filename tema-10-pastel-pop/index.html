@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Aura Beauty — Kuaför & Güzellik Merkezi. Saç, cilt, makyaj ve bakımda uzman ekip." />
+  <title>Aura Beauty</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+
+  <script type="module" crossorigin src="/kuafor-konseptler/assets/tema-10-pastel-pop-CtB6FCyt.js"></script>
+  <link rel="modulepreload" crossorigin href="/kuafor-konseptler/assets/content-BsmWQ5DW.js">
+  <link rel="modulepreload" crossorigin href="/kuafor-konseptler/assets/lightbox-D1FkXsxL.js">
+  <link rel="stylesheet" crossorigin href="/kuafor-konseptler/assets/tema-10-pastel-pop-7M5-CtDS.css">
+</head>
+<body>
+  <!-- Yüzen pastel blob'lar (dekoratif) -->
+  <div class="blob-field" aria-hidden="true">
+    <span class="blob blob--lila"></span>
+    <span class="blob blob--peach"></span>
+    <span class="blob blob--mint"></span>
+    <span class="blob blob--butter"></span>
+  </div>
+
+  <a class="skip-link" href="#hizmetler">İçeriğe geç</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" data-brand aria-label="Aura Beauty ana sayfa">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__name" data-brand-name>Aura</span>
+      </a>
+
+      <nav class="nav" aria-label="Ana menü">
+        <ul class="nav__list" data-nav></ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn--pop header-cta" data-cta-primary href="#" target="_blank" rel="noopener">Randevu Al</a>
+        <button class="hamburger" id="hamburger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <ul class="mobile-menu__list" data-mobile-nav></ul>
+      <a class="btn btn--pop mobile-cta" data-cta-primary href="#" target="_blank" rel="noopener">Randevu Al</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="sticker" data-reveal>💖 Yeni nesil güzellik</p>
+          <h1 class="hero__title" id="hero-title">
+            <span data-brand-name>Aura</span>
+            <span class="hero__slogan" data-slogan>Zarafetin yeni adresi</span>
+          </h1>
+          <p class="hero__intro" data-intro></p>
+
+          <div class="hero__cta" data-reveal>
+            <a class="btn btn--pop btn--lg" data-cta-primary href="#" target="_blank" rel="noopener">Randevu Al</a>
+            <a class="btn btn--ghost btn--lg" data-cta-secondary href="#" target="_blank" rel="noopener">
+              <span aria-hidden="true">💬</span> WhatsApp
+            </a>
+          </div>
+
+          <ul class="stats" data-stats aria-label="Öne çıkan rakamlar"></ul>
+        </div>
+
+        <div class="hero__media" data-reveal>
+          <div class="hero__photo-wrap">
+            <img class="hero__photo" data-hero-img alt="Aura Beauty salonundan bir an" fetchpriority="high" />
+            <span class="float-card float-card--a" aria-hidden="true">✨ Uzman Ekip</span>
+            <span class="float-card float-card--b" aria-hidden="true">🌿 Doğal Bakım</span>
+          </div>
+        </div>
+      </div>
+      <div class="wave" aria-hidden="true"></div>
+    </section>
+
+    <!-- HİZMETLER -->
+    <section class="section services" id="hizmetler" aria-labelledby="services-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="kicker">Hizmetlerimiz</p>
+          <h2 class="section-title" id="services-title">Sana en çok yakışanı seçelim ✂️</h2>
+          <p class="section-sub">Her hizmet, kişiye özel danışmanlık ile başlar.</p>
+        </header>
+
+        <div class="service-cats" data-services></div>
+      </div>
+    </section>
+
+    <!-- GALERİ -->
+    <section class="section gallery" id="galeri" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="kicker">Galeri</p>
+          <h2 class="section-title" id="gallery-title">Salonumuzdan kareler 📸</h2>
+          <p class="section-sub">Görsellere dokun, büyüt.</p>
+        </header>
+        <div class="gallery-grid" data-gallery></div>
+      </div>
+    </section>
+
+    <!-- HAKKIMIZDA -->
+    <section class="section about" id="hakkimizda" aria-labelledby="about-title">
+      <div class="wrap about__grid">
+        <div class="about__media" data-reveal>
+          <img class="about__img" data-about-img alt="Aura Beauty ekibinden bir kare" loading="lazy" />
+          <span class="float-card float-card--c" aria-hidden="true">💖 12+ Yıl</span>
+        </div>
+        <div class="about__copy">
+          <p class="kicker" data-reveal>Hakkımızda</p>
+          <h2 class="section-title" id="about-title" data-reveal>Güzellik, sana özel bir deneyim 🌸</h2>
+          <p class="about__text" data-about data-reveal></p>
+          <ul class="values" data-values></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- YORUMLAR -->
+    <section class="section testimonials" id="yorumlar" aria-labelledby="testi-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="kicker">Yorumlar</p>
+          <h2 class="section-title" id="testi-title">Mutlu yüzler, gerçek hikâyeler 💬</h2>
+        </header>
+        <div class="testi-grid" data-testimonials></div>
+      </div>
+    </section>
+
+    <!-- İLETİŞİM -->
+    <section class="section contact" id="iletisim" aria-labelledby="contact-title">
+      <div class="wrap contact__grid">
+        <div class="contact__info">
+          <p class="kicker" data-reveal>İletişim</p>
+          <h2 class="section-title" id="contact-title" data-reveal>Hadi tanışalım! 📍</h2>
+
+          <ul class="contact-list" data-reveal>
+            <li>
+              <span class="contact-list__ic" aria-hidden="true">📍</span>
+              <div><strong>Adres</strong><span data-address></span></div>
+            </li>
+            <li>
+              <span class="contact-list__ic" aria-hidden="true">📞</span>
+              <div><strong>Telefon</strong><a data-phone href="#"></a></div>
+            </li>
+            <li>
+              <span class="contact-list__ic" aria-hidden="true">💬</span>
+              <div><strong>WhatsApp</strong><a data-whatsapp href="#" target="_blank" rel="noopener">Mesaj gönder</a></div>
+            </li>
+            <li>
+              <span class="contact-list__ic" aria-hidden="true">📸</span>
+              <div><strong>Instagram</strong><a data-instagram href="#" target="_blank" rel="noopener"></a></div>
+            </li>
+          </ul>
+
+          <div class="hours-card" data-reveal>
+            <h3 class="hours-card__title">Çalışma Saatleri 🕘</h3>
+            <ul class="hours" data-hours></ul>
+          </div>
+        </div>
+
+        <div class="contact__map" data-reveal>
+          <iframe
+            data-map
+            title="Aura Beauty konum haritası"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer__grid">
+      <div class="footer__brand">
+        <a class="brand brand--footer" href="#top">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__name" data-brand-name>Aura</span>
+        </a>
+        <p class="footer__tag" data-footer-tag></p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Alt menü">
+        <ul data-footer-nav></ul>
+      </nav>
+
+      <div class="footer__social">
+        <a class="btn btn--ghost btn--sm" data-cta-primary href="#" target="_blank" rel="noopener">Randevu Al</a>
+        <a class="footer__ig" data-instagram href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <p class="footer__copy" data-copy></p>
+  </footer>
+
+</body>
+</html>

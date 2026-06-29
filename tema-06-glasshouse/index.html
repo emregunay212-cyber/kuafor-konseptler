@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aura Beauty — Kuaför & Güzellik Merkezi. Saç, cilt, makyaj ve bakımda uzman ekip." />
+    <title>Aura Beauty</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+
+    <script type="module" crossorigin src="/kuafor-konseptler/assets/tema-06-glasshouse-BhMPAJo3.js"></script>
+    <link rel="modulepreload" crossorigin href="/kuafor-konseptler/assets/content-BsmWQ5DW.js">
+    <link rel="modulepreload" crossorigin href="/kuafor-konseptler/assets/lightbox-D1FkXsxL.js">
+    <link rel="stylesheet" crossorigin href="/kuafor-konseptler/assets/tema-06-glasshouse-B3I23Ta0.css">
+  </head>
+  <body>
+    <!-- Yumuşak yüzen gradyan mesh arka plan (dekoratif) -->
+    <div class="mesh-bg" aria-hidden="true">
+      <span class="blob blob--1"></span>
+      <span class="blob blob--2"></span>
+      <span class="blob blob--3"></span>
+      <span class="blob blob--4"></span>
+    </div>
+
+    <a class="skip-link" href="#main">İçeriğe geç</a>
+
+    <!-- HEADER / NAV -->
+    <header class="site-header" id="siteHeader">
+      <div class="container header__inner">
+        <a class="brand" href="#top" aria-label="Aura Beauty ana sayfa">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__name" data-brand></span>
+        </a>
+
+        <nav class="nav" aria-label="Ana menü">
+          <ul class="nav__list" data-nav></ul>
+        </nav>
+
+        <div class="header__actions">
+          <a class="btn btn--primary btn--sm" data-cta-header target="_blank" rel="noopener">
+            Randevu Al
+          </a>
+          <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobileNav">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobil menü -->
+      <div class="mobile-nav" id="mobileNav" hidden>
+        <ul class="mobile-nav__list" data-nav-mobile></ul>
+        <a class="btn btn--primary mobile-nav__cta" data-cta-header target="_blank" rel="noopener">Randevu Al</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow" data-reveal>
+              <span class="eyebrow__dot" aria-hidden="true"></span>
+              <span data-brand-tagline></span>
+            </p>
+            <h1 class="hero__title" data-reveal>
+              <span data-slogan></span>
+            </h1>
+            <p class="hero__intro" data-reveal style="--reveal-delay:80ms" data-intro></p>
+            <div class="hero__cta" data-reveal style="--reveal-delay:160ms">
+              <a class="btn btn--primary btn--lg" data-cta-randevu target="_blank" rel="noopener">Randevu Al</a>
+              <a class="btn btn--glass btn--lg" data-cta-whatsapp target="_blank" rel="noopener">
+                <span class="btn__icon" aria-hidden="true">💬</span> WhatsApp
+              </a>
+            </div>
+            <ul class="stats" data-stats data-reveal style="--reveal-delay:240ms"></ul>
+          </div>
+
+          <div class="hero__visual" data-reveal style="--reveal-delay:120ms">
+            <figure class="glass-photo hero__photo hero__photo--main">
+              <img data-hero-main alt="Aura Beauty güzellik portresi" width="640" height="800" />
+            </figure>
+            <figure class="glass-photo hero__photo hero__photo--float">
+              <img data-hero-float alt="Salon detayı" width="280" height="340" />
+            </figure>
+            <div class="hero__badge glass-card" aria-hidden="true">
+              <span class="hero__badge-stars">★★★★★</span>
+              <span class="hero__badge-text">Memnuniyet</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HİZMETLER -->
+      <section class="section services" id="hizmetler">
+        <div class="container">
+          <header class="section__head" data-reveal>
+            <p class="section__eyebrow">Menümüz</p>
+            <h2 class="section__title">Hizmetlerimiz</h2>
+            <p class="section__lead">Her dokunuşta zarafet — uzman ekibimizle kişiye özel bakım.</p>
+          </header>
+
+          <div class="services__tabs" data-service-tabs role="tablist" aria-label="Hizmet kategorileri"></div>
+          <div class="services__panels" data-service-panels></div>
+        </div>
+      </section>
+
+      <!-- GALERİ -->
+      <section class="section gallery" id="galeri">
+        <div class="container">
+          <header class="section__head" data-reveal>
+            <p class="section__eyebrow">Çalışmalarımız</p>
+            <h2 class="section__title">Galeri</h2>
+            <p class="section__lead">Salonumuzdan ve işlerimizden kareler.</p>
+          </header>
+          <div class="gallery__grid" data-gallery></div>
+        </div>
+      </section>
+
+      <!-- HAKKIMIZDA -->
+      <section class="section about" id="hakkimizda">
+        <div class="container about__grid">
+          <figure class="glass-photo about__photo" data-reveal>
+            <img data-about-img alt="Aura Beauty salon ortamı" width="640" height="720" loading="lazy" />
+          </figure>
+          <div class="about__copy" data-reveal style="--reveal-delay:100ms">
+            <p class="section__eyebrow">Hakkımızda</p>
+            <h2 class="section__title">Güzellik, kişiye özel bir deneyim</h2>
+            <p class="about__text" data-about></p>
+            <ul class="values" data-values></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- YORUMLAR -->
+      <section class="section testimonials" id="yorumlar">
+        <div class="container">
+          <header class="section__head" data-reveal>
+            <p class="section__eyebrow">Müşterilerimiz</p>
+            <h2 class="section__title">Onların Sözleriyle</h2>
+            <p class="section__lead">Bizi tercih edenlerin deneyimleri.</p>
+          </header>
+          <div class="testimonials__grid" data-testimonials></div>
+        </div>
+      </section>
+
+      <!-- İLETİŞİM -->
+      <section class="section contact" id="iletisim">
+        <div class="container">
+          <header class="section__head" data-reveal>
+            <p class="section__eyebrow">Bize Ulaşın</p>
+            <h2 class="section__title">İletişim & Randevu</h2>
+            <p class="section__lead">Sizi salonumuzda ağırlamaktan mutluluk duyarız.</p>
+          </header>
+
+          <div class="contact__grid">
+            <div class="contact__card glass-card" data-reveal>
+              <h3 class="contact__card-title">Bilgiler</h3>
+              <ul class="contact__list">
+                <li>
+                  <span class="contact__ico" aria-hidden="true">📍</span>
+                  <span data-address></span>
+                </li>
+                <li>
+                  <span class="contact__ico" aria-hidden="true">📞</span>
+                  <a data-tel></a>
+                </li>
+                <li>
+                  <span class="contact__ico" aria-hidden="true">💬</span>
+                  <a data-wa target="_blank" rel="noopener">WhatsApp</a>
+                </li>
+                <li>
+                  <span class="contact__ico" aria-hidden="true">📷</span>
+                  <a data-insta target="_blank" rel="noopener"></a>
+                </li>
+              </ul>
+
+              <h3 class="contact__card-title contact__card-title--mt">Çalışma Saatleri</h3>
+              <ul class="hours" data-hours></ul>
+
+              <div class="contact__cta">
+                <a class="btn btn--primary btn--block" data-cta-randevu target="_blank" rel="noopener">Randevu Al</a>
+              </div>
+            </div>
+
+            <figure class="contact__map glass-card" data-reveal style="--reveal-delay:100ms">
+              <iframe
+                data-map
+                title="Aura Beauty konum haritası"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <span class="brand__name brand__name--lg" data-brand></span>
+          <p class="footer__tagline" data-footer-intro></p>
+          <div class="footer__social">
+            <a data-insta-foot target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a data-wa-foot target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+          </div>
+        </div>
+        <nav class="footer__nav" aria-label="Alt menü">
+          <ul data-nav-footer></ul>
+        </nav>
+      </div>
+      <div class="container footer__bottom">
+        <p data-copyright></p>
+      </div>
+    </footer>
+
+  </body>
+</html>
